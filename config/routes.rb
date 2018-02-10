@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :games
   resources :microposts
   resources :users
-  root 'users#index'
+  root 'games#index'
 end
