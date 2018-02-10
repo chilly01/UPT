@@ -7,7 +7,7 @@ default: &default
 
 development:
   <<: *default
-  database: my_atlas
+  database: poker_atlas
 
 test:
   <<: *default

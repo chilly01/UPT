@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @game.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @game.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @game.notes %>
+</p>
+
+<p>
+  <strong>Tour:</strong>
+  <%= @game.tour_id %>
+</p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @game.venue_id %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @game.start_time %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @game.day %>
+</p>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
