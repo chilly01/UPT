@@ -23,22 +23,22 @@
 
   <div class="field">
     <%= form.label :tour_id %>
-    <%= form.number_field :tour_id, id: :game_tour_id %>
+    <%= collection_select(:game, :tour_id, @tours, :id, :name, {:prompt => true}) %>
   </div>
 
   <div class="field">
     <%= form.label :venue_id %>
-    <%= form.number_field :venue_id, id: :game_venue_id %>
+    <%= collection_select(:game, :venue_id, @venues, :id, :name, {:prompt => true}) %>
   </div>
 
   <div class="field">
     <%= form.label :start_time %>
-    <%= form.text_field :start_time, id: :game_start_time %>
+    <%= form.select :start_time, @start_times%>
   </div>
 
   <div class="field">
     <%= form.label :day %>
-    <%= form.text_field :day, id: :game_day %>
+    <%= form.select :day, @days %>
   </div>
 
   <div class="actions">

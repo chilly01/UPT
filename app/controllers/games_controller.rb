@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :get_data
 
   # GET /games
   # GET /games.json
@@ -25,7 +26,6 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(game_params)
-
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
@@ -65,6 +65,22 @@ class GamesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_game
       @game = Game.find(params[:id])
+
+    end
+
+    def get_data
+      @venues = Venue.all
+      @tours = Tour.all
+      @start_times = Array.new
+      ['8','9','10','11'].each { |i|
+        @start_times << (i +':00AM')
+        @start_times << (i +':30AM')
+      }
+      ['12','1','2','3','4','5','6','7','8','9','10'].each { |i|
+        @start_times << (i +':00PM')
+        @start_times << (i +':30PM')
+      }
+      @days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

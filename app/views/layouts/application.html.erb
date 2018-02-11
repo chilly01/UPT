@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UpaBlog</title>
+    <title>Utah Poker Atlas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +10,11 @@
   </head>
 
   <body>
+    <div class="">
+      <%= link_to 'Games', games_path %>
+      <%= link_to 'Venues', venues_path %>
+      <%= link_to 'Tours', tours_path %>
+    </div>
     <%= yield %>
   </body>
 </html>
