@@ -22,6 +22,11 @@ class GamesController < ApplicationController
   def edit
   end
 
+  def clone
+    @game = Game.find(params[:game_id]).dup
+    @game.save!
+  end
+
   # POST /games
   # POST /games.json
   def create
