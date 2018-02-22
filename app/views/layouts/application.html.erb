@@ -11,11 +11,13 @@
 
   <body>
     <div class="">
-      <%= link_to 'Users', users_path %>
       <%= link_to 'Games', games_path %>
       <%= link_to 'Venues', venues_path %>
       <%= link_to 'Tours', tours_path %>
     </div>
     <%= yield %>
+    <div class="">
+      <em>&copy; 2018 Utah Poker Atlas</em>
+    </div>
   </body>
 </html>
