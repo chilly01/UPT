@@ -7,14 +7,37 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   </head>
 
   <body>
     <div class="">
-      <%= link_to 'Games', games_path %>
-      <%= link_to 'Venues', venues_path %>
-      <%= link_to 'Tours', tours_path %>
+
     </div>
+    <div class="">
+      <nav class="navbar navbar-expand-sm bg-dark">
+      <ul class="nav">
+        <li class-"nav-item">
+          <%= image_tag "utah.jpg"  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Games', games_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item"><%= link_to 'Venues', venues_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'Tours', tours_path, class: 'nav-link' %></li>
+      </ul></nav>
+    </div>
+
     <%= yield %>
     <div class="">
       <em>&copy; 2018 Utah Poker Atlas</em>
