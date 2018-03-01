@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+#upa_navbar{
+  color: yellow; 
+}

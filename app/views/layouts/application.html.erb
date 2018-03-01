@@ -22,15 +22,13 @@
 
   <body>
     <div class="">
-
+      <%= image_tag "upa_header.jpg"  %>
     </div>
-    <div class="">
+    <div id="upa_navbar">
       <nav class="navbar navbar-expand-sm bg-dark">
-      <ul class="nav">
-        <li class-"nav-item">
-          <%= image_tag "utah.jpg"  %>
-        </li>
-        <li class="nav-item">
+
+        <ul class="nav">
+        <li>
           <%= link_to 'Games', games_path, class: 'nav-link' %>
         </li>
         <li class="nav-item"><%= link_to 'Venues', venues_path, class: 'nav-link' %></li>

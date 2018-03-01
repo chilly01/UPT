@@ -8,7 +8,5 @@ Rails.application.routes.draw do
   resources :games do
     get "clone"
   end
-  resources :users do
-  end
   root 'games#index'
 end
