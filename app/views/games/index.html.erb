@@ -5,12 +5,12 @@
 <table class="table-dark table-striped">
   <thead>
     <tr>
+    <th>Day</th>
+    <th>Start time</th>
+    <th>Venue</th>
+    <th>Tour</th>
       <th>Name</th>
       <th>Notes</th>
-      <th>Tour</th>
-      <th>Venue</th>
-      <th>Start time</th>
-      <th>Day</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,12 +18,12 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
+        <td><h1><%= game.day %></h1></td>
+        <td><%= game.start_time %></td>
+        <td><%= game.venue.name %></td>
+        <td><%= game.tour.name %></td>
         <td><%= game.name %></td>
         <td><%= game.notes %></td>
-        <td><%= game.tour.name %></td>
-        <td><%= game.venue.name %></td>
-        <td><%= game.start_time %></td>
-        <td><%= game.day %></td>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>

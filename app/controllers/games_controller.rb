@@ -5,7 +5,8 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
+    @games = Game.all.sort_by {|obj| obj.day }
+    
   end
 
   # GET /games/1
