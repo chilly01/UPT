@@ -5,8 +5,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all.sort_by {|game| game.date_of_next_game }
-
+    @games = Game.all.sort_by {|game| [game.offset_of_next_game, game.time_sort] }
   end
 
   # GET /games/1
@@ -77,6 +76,16 @@ class GamesController < ApplicationController
     def get_data
       @venues = Venue.all
       @tours = Tour.all
+      create_start_times
+      @days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def game_params
+      params.require(:game).permit(:id, :name, :notes, :tour_id, :venue_id, :start_time, :day)
+    end
+
+    def create_start_times
       @start_times = Array.new
       ['8','9','10','11'].each { |i|
         @start_times << (i +':00AM')
@@ -86,11 +95,5 @@ class GamesController < ApplicationController
         @start_times << (i +':00PM')
         @start_times << (i +':30PM')
       }
-      @days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def game_params
-      params.require(:game).permit(:id, :name, :notes, :tour_id, :venue_id, :start_time, :day)
     end
 end

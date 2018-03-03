@@ -16,6 +16,15 @@
 html{
   background-color: grey;
 }
+
+table{
+  margin: 20px;
+}
+
+th, td{
+  padding: 10px;
+}
+
 .upa_image_header{
   margin: auto;
   position: relative;
