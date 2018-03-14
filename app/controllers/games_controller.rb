@@ -5,7 +5,8 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all.sort_by {|game| [game.offset_of_next_game, game.time_sort] }
+    active_games = Game.where(active: true)
+    @games = active_games.sort_by {|game| [game.offset_of_next_game, game.time_sort] }
   end
 
   # GET /games/1
@@ -59,7 +60,8 @@ class GamesController < ApplicationController
   # DELETE /games/1
   # DELETE /games/1.json
   def destroy
-    @game.destroy
+    @game.active = false
+    @game.save!
     respond_to do |format|
       format.html { redirect_to games_url, notice: 'Game was successfully destroyed.' }
       format.json { head :no_content }
