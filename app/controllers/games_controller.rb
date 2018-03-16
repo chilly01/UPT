@@ -5,6 +5,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
+    @notice = "User not logged in" unless current_user
     active_games = Game.where(active: true)
     @games = active_games.sort_by {|game| [game.offset_of_next_game, game.time_sort] }
   end

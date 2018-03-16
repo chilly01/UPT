@@ -31,13 +31,14 @@
       <nav class="navbar navbar-expand-sm bg-dark">
 
         <ul class="nav">
-        <li>
-          <%= link_to 'Games', games_path, class: 'nav-link' %>
-        </li>
+        <li><%= link_to 'Games', games_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'Venues', venues_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'Tours', tours_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'Log In', login_path, class: 'nav-link' %></li>
       </ul></nav>
     </div>
+
+    <p> <%= current_user.email if current_user %>  </p>
 
     <%= yield %>
     <div class="">
