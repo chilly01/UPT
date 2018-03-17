@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   def check_login
     return if (self.controller_name == "games" && self.action_name == "index")
+    return if (self.controller_name == "users" && self.action_name == "new")
     return if (self.controller_name == "sessions")
     return if current_user
     redirect_to games_path
