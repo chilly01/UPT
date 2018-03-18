@@ -27,7 +27,7 @@
         <td><%= game.tour.name %></td>
         <td><%= game.name %></td>
         <td><%= game.notes %></td>
-        <% if current_user %>
+        <% if current_user && (@editable_tours.include? game.tour)%>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>

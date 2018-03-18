@@ -32,13 +32,17 @@
 
         <ul class="nav">
         <li><%= link_to 'Games', games_path, class: 'nav-link' %></li>
+        <% if current_user %>
         <li class="nav-item"><%= link_to 'Venues', venues_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'Tours', tours_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'Log out', logout_path, class: 'nav-link' %></li>
+        <% else %>
         <li class="nav-item"><%= link_to 'Log In', login_path, class: 'nav-link' %></li>
+        <% end %>
       </ul></nav>
     </div>
 
-    <p> <%= current_user.email if current_user %>  </p>
+    <p> <%= current_user.name if current_user %>  </p>
 
     <%= yield %>
     <div class="">

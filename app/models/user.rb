@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :microposts
-  has_many :tours
+  has_and_belongs_to_many :tours  
   validates_presence_of :name
   validates :email,:presence => true, uniqueness: { case_sensitive: false }
   validates :password, :length => { :minimum => 7 }
