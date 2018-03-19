@@ -15,5 +15,8 @@
   <%= @venue.notes %>
 </p>
 
+<%= image_tag (map_maker @venue) %>
+<br/>
+
 <%= link_to 'Edit', edit_venue_path(@venue) %> |
 <%= link_to 'Back', venues_path %>

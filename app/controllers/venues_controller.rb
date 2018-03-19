@@ -1,10 +1,14 @@
 class VenuesController < ApplicationController
+  include VenuesHelper
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
 
   # GET /venues
   # GET /venues.json
   def index
     @venues = Venue.all
+
+    @map_temp = map_maker(@venues.to_a)
+
   end
 
   # GET /venues/1

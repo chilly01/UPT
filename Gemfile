@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.1.4'
 gem 'bcrypt'
 gem 'mysql2'
+gem 'geocoder'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
