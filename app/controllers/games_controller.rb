@@ -5,12 +5,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @editable_tours = []
-    if current_user
-      @editable_tours = current_user.tours
-    else
-      @notice = "User not logged in"
-    end
+    @editable_tours = current_user ? current_user.tours : []
     active_games = Game.where(active: true)
     @games = active_games.sort_by {|game| [game.offset_of_next_game, game.time_sort] }
   end
@@ -66,6 +61,7 @@ class GamesController < ApplicationController
   # DELETE /games/1
   # DELETE /games/1.json
   def destroy
+    return unless (current_user.tours.include? @game.tour)
     @game.active = false
     @game.save!
     respond_to do |format|
