@@ -6,9 +6,7 @@ class VenuesController < ApplicationController
   # GET /venues.json
   def index
     @venues = Venue.all
-
-    @map_temp = map_maker(@venues.to_a)
-
+    @map_temp = js_map_maker(@venues.to_a)
   end
 
   # GET /venues/1
