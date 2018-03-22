@@ -1,5 +1,4 @@
 class VenuesController < ApplicationController
-  include VenuesHelper
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
 
   # GET /venues
