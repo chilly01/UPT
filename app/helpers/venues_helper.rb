@@ -18,4 +18,8 @@ module VenuesHelper
     mt += "markers=color:blue|label:*|#{tmp}"
     mt += "&key=AIzaSyD3QPwG1j85H2nb7_PfJI5phvCrf2QUx4Y"
   end
+
+  def js_map_maker(location)
+    
+  end
 end
