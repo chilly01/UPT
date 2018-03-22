@@ -5,6 +5,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
+    @map_temp = js_map_maker(Venue.all.to_a)
     @editable_tours = current_user ? current_user.tours : []
     active_games = Game.where(active: true)
     @games = active_games.sort_by {|game| [game.offset_of_next_game, game.time_sort] }
