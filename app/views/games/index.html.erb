@@ -1,6 +1,10 @@
 
 <p id="notice"><%= @notice %></p>
 
+<br>
+<%= @map_temp %>
+<br/>
+
 <h1>Games</h1>
 
 <table class="table-dark table-striped">
@@ -23,7 +27,7 @@
       <tr>
         <td><h1><%= game.day %></h1></td>
         <td><%= game.start_time %></td>
-        <td><%= game.venue.name %></td>
+        <td><%= current_user ? (link_to game.venue.name, game.venue) : game.venue.name %></td>
         <td><%= game.tour.name %></td>
         <td><%= game.name %></td>
         <td><%= game.notes %></td>
@@ -38,9 +42,5 @@
 </table>
 
 <br>
-
-<br>
-<%= @map_temp %>
-<br/>
 
 <%= link_to 'New Game', new_game_path %>
