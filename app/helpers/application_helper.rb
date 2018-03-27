@@ -44,11 +44,12 @@ module ApplicationHelper
     html = '<div id="map" style="width: 500px; height: 400px;"></div>'
     html += '<script async defer src="https://maps.googleapis.com/maps/api/js?'
     html += "key=#{api_key}"
-    html += '&callback=initMap"></script>'
+    html += '&callback=initMap"></script><br> '
     html += ' <script type="text/javascript">'
     html += "var locations = #{tmp}"
 
-    html += "function initMap(){
+    html += "
+      function initMap(){
        var map = new google.maps.Map(document.getElementById('map'), {
          zoom: #{zoom},
          center: new google.maps.LatLng(#{clat}, #{clong}),
