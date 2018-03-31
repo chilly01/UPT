@@ -10,6 +10,9 @@ class ToursController < ApplicationController
   # GET /tours/1
   # GET /tours/1.json
   def show
+    games = Game.where(tour: @tour).uniq {|x| x.venue}
+    venues = games.map{ |s| s.venue }
+    @map = venues.empty? ? " " : js_map_maker(venues)
   end
 
   # GET /tours/new

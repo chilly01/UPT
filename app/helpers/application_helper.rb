@@ -24,6 +24,8 @@ module ApplicationHelper
 
   def js_map_maker(location)
     api_key = ConfigItem.where(name: 'google_map_api').first.content
+    map_width = "500px"
+    map_height = "300px"
     tmp =  '['
     if location.is_a? Array
       zoom = '9'
@@ -41,7 +43,8 @@ module ApplicationHelper
       clong = location.longitude
     end
 
-    html = '<div id="map" style="width: 500px; height: 400px;"></div>'
+    html = '<div id="map" style="'
+    html += "width: #{map_width}; height: #{map_height};" + '"></div>'
     html += '<script async defer src="https://maps.googleapis.com/maps/api/js?'
     html += "key=#{api_key}"
     html += '&callback=initMap"></script><br> '
@@ -78,4 +81,5 @@ module ApplicationHelper
 
      html.html_safe
   end
+
 end
